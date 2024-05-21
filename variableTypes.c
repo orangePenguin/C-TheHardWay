@@ -23,7 +23,7 @@ int main(int argc, char*argv[])
     printf("The entire universe has %ld bugs.\n", universe_of_defects);
 
     double part_of_universe = (bugs * bug_rate) / universe_of_defects;
-    printf("Expected bugs in comparision with whole universe is %e.\n", part_of_universe);
+    printf("Expected bugs in comparison with whole universe is %e.\n", part_of_universe);
 
     char nul_byte = '\0';
     int care_percentage = bugs * nul_byte;

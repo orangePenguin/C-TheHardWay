@@ -9,6 +9,11 @@ struct Person {
     int height;
     int weight;
 };
+struct stud {
+    int roll;
+    char dept_code;
+    float cgpa;
+};
 
 struct Person *Person_create(char *name, int age, int height, int weight)
 {
@@ -64,6 +69,30 @@ int main(int argc, char *agrv[]){
     // Clean by destroying them.
     Person_destroy(joe);
     Person_destroy(frank);
+
+    struct stud *studArray = (struct stud *) malloc(sizeof(struct stud*) * 10);
+    int i = 1;
+    while (i < 11)
+    {
+        printf("Enter roll no of student %d: ", i);
+        scanf("%d", &(studArray[i].roll));
+        printf("Enter dept_code of student %d: ", i);
+        scanf("%s", &(studArray[i].dept_code));
+        printf("Enter cgpa of student %d: ", i);
+        scanf("%f", &(studArray[i].cgpa));
+        i++;
+    }
+    struct stud temp = studArray[0];
+    i = 1;
+    while (i < 10)
+    {
+        if (temp.cgpa < studArray[i].cgpa)
+            temp = studArray[i];
+        i++;
+    }
+    free(studArray);
+    printf("The roll number of Student with max CGPA is: %d",
+           temp.roll);
 
     return 0;
 }
